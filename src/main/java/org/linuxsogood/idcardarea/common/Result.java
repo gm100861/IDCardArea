@@ -18,7 +18,25 @@ public class Result {
 	private String cardNumber;	//身份证号码
 	private String msg;	//如果查到,则返回身份证所属的地区
 	
+	private String gender; //性别
+	private String area; //身份证所属区域
 	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
 	public int getCode() {
 		return code;
 	}
