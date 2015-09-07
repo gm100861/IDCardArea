@@ -10,7 +10,7 @@ import org.linuxsogood.idcardarea.entity.IdcardArea;
  * 
  * @author gm100861, </br> gm100861@gmail.com
  * @see org.linuxsogood.idcardarea.service.IDCardAreaService
- * @version	V0.0.1-SNAPSHOT, 2015Äê5ÔÂ8ÈÕ ÏÂÎç2:33:41
+ * @version	V0.0.1-SNAPSHOT, 2015å¹´5æœˆ8æ—¥ ä¸‹åˆ2:33:41
  * @description
  * 
  */
@@ -19,7 +19,7 @@ public interface IDCardAreaService {
 	IdcardArea validate(String substring);
 
 	/**
-	 * @description ¸ù¾İÉí·İÖ¤ºÅÂë²éÑ¯¹éÊôµØ
+	 * @description æ ¹æ®èº«ä»½è¯å·ç æŸ¥è¯¢å½’å±åœ°
 	 * @param substring
 	 * @return
 	 */

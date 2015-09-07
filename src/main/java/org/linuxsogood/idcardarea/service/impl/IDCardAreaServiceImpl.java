@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * 
  * @author gm100861, </br> gm100861@gmail.com
  * @see org.linuxsogood.idcardarea.service.impl.IDCardAreaServiceImpl
- * @version	V0.0.1-SNAPSHOT, 2015ƒÍ5‘¬8»’ œ¬ŒÁ3:26:32
+ * @version	V0.0.1-SNAPSHOT, 2015Âπ¥5Êúà8Êó• ‰∏ãÂçà3:26:32
  * @description
  * 
  */
@@ -24,7 +24,6 @@ public class IDCardAreaServiceImpl implements IDCardAreaService {
 	@Autowired
 	private IdcardAreaMapper mapper;
 	
-	@Override
 	public IdcardArea validate(String substring) {
 		// TODO Auto-generated method stub
 		return null;
@@ -33,7 +32,6 @@ public class IDCardAreaServiceImpl implements IDCardAreaService {
 	/* (non-Javadoc)
 	 * @see org.linuxsogood.idcardarea.service.IDCardAreaService#queryArea(java.lang.String)
 	 */
-	@Override
 	public IdcardArea queryArea(String cardNumber) {
 		return mapper.selectByPrimaryKey(Integer.parseInt(cardNumber));
 	}

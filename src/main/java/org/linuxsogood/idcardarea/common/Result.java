@@ -4,22 +4,23 @@
  */
 package org.linuxsogood.idcardarea.common;
 
+
 /**
  * 
  * @author gm100861, </br> gm100861@gmail.com
  * @see org.linuxsogood.idcardarea.common.Result
- * @version	V0.0.1-SNAPSHOT, 2015Äê5ÔÂ8ÈÕ ÏÂÎç2:38:43
- * @description ·â×°·µ»ØÖµµÄÊµÌåÀà
+ * @version	V0.0.1-SNAPSHOT, 2015å¹´5æœˆ8æ—¥ ä¸‹åˆ2:38:43
+ * @description å°è£…è¿”å›å€¼çš„å®ä½“ç±»
  * 
  */
 public class Result {
 	
-	private int code;	//·µ»ØµÄ×´Ì¬Âë,200±íÊ¾³É¹¦,ÆäËü¶¼±íÊ¾Ê§°Ü
-	private String cardNumber;	//Éí·İÖ¤ºÅÂë
-	private String msg;	//Èç¹û²éµ½,Ôò·µ»ØÉí·İÖ¤ËùÊôµÄµØÇø
+	private int code;	//è¿”å›çš„çŠ¶æ€ç ,200è¡¨ç¤ºæˆåŠŸ,å…¶å®ƒéƒ½è¡¨ç¤ºå¤±è´¥
+	private String cardNumber;	//èº«ä»½è¯å·ç 
+	private String msg;	//å¦‚æœæŸ¥åˆ°,åˆ™è¿”å›èº«ä»½è¯æ‰€å±çš„åœ°åŒº
 	
-	private String gender; //ĞÔ±ğ
-	private String area; //Éí·İÖ¤ËùÊôÇøÓò
+	private String gender; //æ€§åˆ«
+	private String area; //èº«ä»½è¯æ‰€å±åŒºåŸŸ
 	
 	public String getGender() {
 		return gender;

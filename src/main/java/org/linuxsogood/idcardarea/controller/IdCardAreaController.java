@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * @author gm100861, </br> gm100861@gmail.com
  * @see org.linuxsogood.idcardarea.controller.IdCardAreaController
- * @version	V0.0.1-SNAPSHOT, 2015Äê5ÔÂ8ÈÕ ÏÂÎç2:31:15
+ * @version	V0.0.1-SNAPSHOT, 2015å¹´5æœˆ8æ—¥ ä¸‹åˆ2:31:15
  * @description
  * 
  */
@@ -37,7 +37,7 @@ public class IdCardAreaController {
 	private static final Logger log = LoggerFactory.getLogger(IdCardAreaController.class);
 	
 	/**
-	 * @description ¸ù¾İÉí·İÖ¤²éÑ¯Éí·İÖ¤µÄ¹éÊôµØ
+	 * @description æ ¹æ®èº«ä»½è¯æŸ¥è¯¢èº«ä»½è¯çš„å½’å±åœ°
 	 * @param cardNumber
 	 * @return
 	 */
@@ -47,12 +47,12 @@ public class IdCardAreaController {
 		Result result = new Result();
 		try {
 			if(log.isDebugEnabled()){
-				log.debug("¿ªÊ¼¸ù¾İÉí·İÖ¤ºÅÂë²éÑ¯¹éÊôµØĞÅÏ¢,Òª²éÑ¯µÄÉí·İÖ¤ºÅÂëÊÇ :"+cardNumber);
+				log.debug("å¼€å§‹æ ¹æ®èº«ä»½è¯å·ç æŸ¥è¯¢å½’å±åœ°ä¿¡æ¯,è¦æŸ¥è¯¢çš„èº«ä»½è¯å·ç æ˜¯ :"+cardNumber);
 			}
 			if(StringUtils.isBlank(cardNumber)){
 				result.setCode(0);
 				result.setCardNumber(cardNumber);
-				result.setMsg("Éí·İÖ¤ºÅÂë²»ÄÜÎª¿Õ");
+				result.setMsg("èº«ä»½è¯å·ç ä¸èƒ½ä¸ºç©º");
 				return result;
 			}
 			cardNumber= cardNumber.trim();
@@ -60,7 +60,7 @@ public class IdCardAreaController {
 			if(card == null){
 				result.setCode(0);
 				result.setCardNumber(cardNumber);
-				result.setMsg("²é²»µ½´ËÉí·İÖ¤µÄ¹éÊôµØ,ÇëÈ·ÈÏ¸ÃÉí·İÖ¤ÊÇºÏ·¨µÄ");
+				result.setMsg("æŸ¥ä¸åˆ°æ­¤èº«ä»½è¯çš„å½’å±åœ°,è¯·ç¡®è®¤è¯¥èº«ä»½è¯æ˜¯åˆæ³•çš„");
 				return result;
 			}
 			result.setCode(200);
@@ -69,39 +69,39 @@ public class IdCardAreaController {
 			return result;
 		} catch (Exception e) {
 			if(log.isErrorEnabled()){
-				log.error("¸ù¾İÉí·İÖ¤ºÅÂë²éÑ¯Éí·İÖ¤ºÅµÄÊ±ºò,³öÏÖÒì³£,Òª²éÑ¯µÄÉí·İÖ¤ºÅÂëÊÇ:"+cardNumber);
+				log.error("æ ¹æ®èº«ä»½è¯å·ç æŸ¥è¯¢èº«ä»½è¯å·çš„æ—¶å€™,å‡ºç°å¼‚å¸¸,è¦æŸ¥è¯¢çš„èº«ä»½è¯å·ç æ˜¯:"+cardNumber);
 			}
 			result.setCode(0);
-			result.setMsg("ÓĞµã¶«Î÷²»Õı³£");
+			result.setMsg("æœ‰ç‚¹ä¸œè¥¿ä¸æ­£å¸¸");
 			result.setCardNumber(cardNumber);
 			return result;
 		}
 	}
 	
 	/**
-	 * @description ¸ù¾İ¡¼ÖĞ»ªÈËÃñ¹²ºÍ¹ú¹ú¼Ò±ê×¼ GB 11643-1999¡½ÖĞÓĞ¹Ø¹«ÃñÉí·İºÅÂëµÄ¹æ¶¨
-	 * ¹«ÃñÉí·İºÅÂëÊÇÌØÕ÷×éºÏÂë£¬ÓÉÊ®ÆßÎ»Êı×Ö±¾ÌåÂëºÍÒ»Î»Êı×ÖĞ£ÑéÂë×é³É¡£
-	 * ÅÅÁĞË³Ğò´Ó×óÖÁÓÒÒÀ´ÎÎª£ºÁùÎ»Êı×ÖµØÖ·Âë£¬°ËÎ»Êı×Ö³öÉúÈÕÆÚÂë£¬ÈıÎ»Êı×ÖË³ĞòÂëºÍÒ»Î»Êı×ÖĞ£ÑéÂë¡£
-	 * µØÖ·Âë±íÊ¾±àÂë¶ÔÏó³£×¡»§¿ÚËùÔÚÏØ(ÊĞ¡¢Æì¡¢Çø)µÄĞĞÕşÇø»®´úÂë¡£
-	 * ³öÉúÈÕÆÚÂë±íÊ¾±àÂë¶ÔÏó³öÉúµÄÄê¡¢ÔÂ¡¢ÈÕ£¬ÆäÖĞÄê·İÓÃËÄÎ»Êı×Ö±íÊ¾£¬Äê¡¢ÔÂ¡¢ÈÕÖ®¼ä²»ÓÃ·Ö¸ô·û¡£
-	 * Ë³ĞòÂë±íÊ¾Í¬Ò»µØÖ·ÂëËù±êÊ¶µÄÇøÓò·¶Î§ÄÚ£¬¶ÔÍ¬Äê¡¢ÔÂ¡¢ÈÕ³öÉúµÄÈËÔ±±à¶¨µÄË³ĞòºÅ¡£Ë³ĞòÂëµÄÆæÊı·Ö¸øÄĞĞÔ£¬Å¼Êı·Ö¸øÅ®ĞÔ¡£
-	 *  Ğ£ÑéÂëÊÇ¸ù¾İÇ°ÃæÊ®ÆßÎ»Êı×ÖÂë£¬°´ÕÕISO 7064:1983.MOD 11-2Ğ£ÑéÂë¼ÆËã³öÀ´µÄ¼ìÑéÂë¡£
-	 *  ³öÉúÈÕÆÚ¼ÆËã·½·¨¡£
-	 *  15Î»µÄÉí·İÖ¤±àÂëÊ×ÏÈ°Ñ³öÉúÄêÀ©Õ¹Îª4Î»£¬¼òµ¥µÄ¾ÍÊÇÔö¼ÓÒ»¸ö19»ò18,ÕâÑù¾Í°üº¬ÁËËùÓĞ1800-1999Äê³öÉúµÄÈË;
-	 *  2000Äêºó³öÉúµÄ¿Ï¶¨¶¼ÊÇ18Î»µÄÁËÃ»ÓĞÕâ¸ö·³ÄÕ£¬ÖÁÓÚ1800ÄêÇ°³öÉúµÄ,ÄÇÉ¶ÄÇÊ±Ó¦¸Ã»¹Ã»Éí·İÖ¤ºÅÕâ¸ö¶«¶«£¬¡Ñ©n¡Ñbº¹...
-	 *  ÏÂÃæÊÇÕıÔò±í´ïÊ½:
-	 *   ³öÉúÈÕÆÚ1800-2099  (18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])
-	 *   Éí·İÖ¤ÕıÔò±í´ïÊ½ /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i            
-	 *   15Î»Ğ£Ñé¹æÔò 6Î»µØÖ·±àÂë+6Î»³öÉúÈÕÆÚ+3Î»Ë³ĞòºÅ
-	 *   18Î»Ğ£Ñé¹æÔò 6Î»µØÖ·±àÂë+8Î»³öÉúÈÕÆÚ+3Î»Ë³ĞòºÅ+1Î»Ğ£ÑéÎ»
-	 * Ğ£ÑéÎ»¹æÔò     ¹«Ê½:¡Æ(ai¡ÁWi)(mod 11)¡­¡­¡­¡­¡­¡­¡­¡­¡­¡­¡­¡­¡­¡­(1)
-	 *   ¹«Ê½(1)ÖĞ£º 
-	 *   i----±íÊ¾ºÅÂë×Ö·û´ÓÓÉÖÁ×ó°üÀ¨Ğ£ÑéÂëÔÚÄÚµÄÎ»ÖÃĞòºÅ£»
-	 *    ai----±íÊ¾µÚiÎ»ÖÃÉÏµÄºÅÂë×Ö·ûÖµ£»
-	 *    Wi----Ê¾µÚiÎ»ÖÃÉÏµÄ¼ÓÈ¨Òò×Ó£¬ÆäÊıÖµÒÀ¾İ¹«Ê½Wi=2^(n-1)(mod 11)¼ÆËãµÃ³ö¡£
+	 * @description æ ¹æ®ã€–ä¸­åäººæ°‘å…±å’Œå›½å›½å®¶æ ‡å‡† GB 11643-1999ã€—ä¸­æœ‰å…³å…¬æ°‘èº«ä»½å·ç çš„è§„å®š
+	 * å…¬æ°‘èº«ä»½å·ç æ˜¯ç‰¹å¾ç»„åˆç ï¼Œç”±åä¸ƒä½æ•°å­—æœ¬ä½“ç å’Œä¸€ä½æ•°å­—æ ¡éªŒç ç»„æˆã€‚
+	 * æ’åˆ—é¡ºåºä»å·¦è‡³å³ä¾æ¬¡ä¸ºï¼šå…­ä½æ•°å­—åœ°å€ç ï¼Œå…«ä½æ•°å­—å‡ºç”Ÿæ—¥æœŸç ï¼Œä¸‰ä½æ•°å­—é¡ºåºç å’Œä¸€ä½æ•°å­—æ ¡éªŒç ã€‚
+	 * åœ°å€ç è¡¨ç¤ºç¼–ç å¯¹è±¡å¸¸ä½æˆ·å£æ‰€åœ¨å¿(å¸‚ã€æ——ã€åŒº)çš„è¡Œæ”¿åŒºåˆ’ä»£ç ã€‚
+	 * å‡ºç”Ÿæ—¥æœŸç è¡¨ç¤ºç¼–ç å¯¹è±¡å‡ºç”Ÿçš„å¹´ã€æœˆã€æ—¥ï¼Œå…¶ä¸­å¹´ä»½ç”¨å››ä½æ•°å­—è¡¨ç¤ºï¼Œå¹´ã€æœˆã€æ—¥ä¹‹é—´ä¸ç”¨åˆ†éš”ç¬¦ã€‚
+	 * é¡ºåºç è¡¨ç¤ºåŒä¸€åœ°å€ç æ‰€æ ‡è¯†çš„åŒºåŸŸèŒƒå›´å†…ï¼Œå¯¹åŒå¹´ã€æœˆã€æ—¥å‡ºç”Ÿçš„äººå‘˜ç¼–å®šçš„é¡ºåºå·ã€‚é¡ºåºç çš„å¥‡æ•°åˆ†ç»™ç”·æ€§ï¼Œå¶æ•°åˆ†ç»™å¥³æ€§ã€‚
+	 *  æ ¡éªŒç æ˜¯æ ¹æ®å‰é¢åä¸ƒä½æ•°å­—ç ï¼ŒæŒ‰ç…§ISO 7064:1983.MOD 11-2æ ¡éªŒç è®¡ç®—å‡ºæ¥çš„æ£€éªŒç ã€‚
+	 *  å‡ºç”Ÿæ—¥æœŸè®¡ç®—æ–¹æ³•ã€‚
+	 *  15ä½çš„èº«ä»½è¯ç¼–ç é¦–å…ˆæŠŠå‡ºç”Ÿå¹´æ‰©å±•ä¸º4ä½ï¼Œç®€å•çš„å°±æ˜¯å¢åŠ ä¸€ä¸ª19æˆ–18,è¿™æ ·å°±åŒ…å«äº†æ‰€æœ‰1800-1999å¹´å‡ºç”Ÿçš„äºº;
+	 *  2000å¹´åå‡ºç”Ÿçš„è‚¯å®šéƒ½æ˜¯18ä½çš„äº†æ²¡æœ‰è¿™ä¸ªçƒ¦æ¼ï¼Œè‡³äº1800å¹´å‰å‡ºç”Ÿçš„,é‚£å•¥é‚£æ—¶åº”è¯¥è¿˜æ²¡èº«ä»½è¯å·è¿™ä¸ªä¸œä¸œï¼ŒâŠ™ï¹âŠ™bæ±—...
+	 *  ä¸‹é¢æ˜¯æ­£åˆ™è¡¨è¾¾å¼:
+	 *   å‡ºç”Ÿæ—¥æœŸ1800-2099  (18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])
+	 *   èº«ä»½è¯æ­£åˆ™è¡¨è¾¾å¼ /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i            
+	 *   15ä½æ ¡éªŒè§„åˆ™ 6ä½åœ°å€ç¼–ç +6ä½å‡ºç”Ÿæ—¥æœŸ+3ä½é¡ºåºå·
+	 *   18ä½æ ¡éªŒè§„åˆ™ 6ä½åœ°å€ç¼–ç +8ä½å‡ºç”Ÿæ—¥æœŸ+3ä½é¡ºåºå·+1ä½æ ¡éªŒä½
+	 * æ ¡éªŒä½è§„åˆ™     å…¬å¼:âˆ‘(aiÃ—Wi)(mod 11)â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦(1)
+	 *   å…¬å¼(1)ä¸­ï¼š 
+	 *   i----è¡¨ç¤ºå·ç å­—ç¬¦ä»ç”±è‡³å·¦åŒ…æ‹¬æ ¡éªŒç åœ¨å†…çš„ä½ç½®åºå·ï¼›
+	 *    ai----è¡¨ç¤ºç¬¬iä½ç½®ä¸Šçš„å·ç å­—ç¬¦å€¼ï¼›
+	 *    Wi----ç¤ºç¬¬iä½ç½®ä¸Šçš„åŠ æƒå› å­ï¼Œå…¶æ•°å€¼ä¾æ®å…¬å¼Wi=2^(n-1)(mod 11)è®¡ç®—å¾—å‡ºã€‚
 	 *    i 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
 	 *    Wi 7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2 1
-	 * @param cardNumber Éí·İÖ¤ºÅÂë
+	 * @param cardNumber èº«ä»½è¯å·ç 
 	 * @return
 	 */
 	@RequestMapping(value="/validateCard",method=RequestMethod.POST,params={"cardNumber"})
@@ -110,7 +110,7 @@ public class IdCardAreaController {
 		Result result = new Result();
 		try {
 			if(log.isDebugEnabled()){
-				log.debug("¿ªÊ¼¼ìÑéÉí·İÖ¤µÄÓĞĞ§ĞÔ:"+cardNumber);
+				log.debug("å¼€å§‹æ£€éªŒèº«ä»½è¯çš„æœ‰æ•ˆæ€§:"+cardNumber);
 			}
 			if(StringUtils.isNoneBlank(cardNumber)){
 				cardNumber=cardNumber.trim();
@@ -120,13 +120,13 @@ public class IdCardAreaController {
 				if(!m.matches()){
 					result.setCardNumber(cardNumber);
 					result.setCode(0);
-					result.setMsg("Éí·İÖ¤ºÅÂë·Ç·¨---");
+					result.setMsg("èº«ä»½è¯å·ç éæ³•---");
 					return result;
 				}
-				//Éí·İÖ¤²»Îª¿Õ,¿ªÊ¼¼ìÑéÊı¾İÉí·İÖ¤µÄºÏ·¨ĞÔ 
-				Integer[] Wi = { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 };// ¼ÓÈ¨Òò×Ó 
-				Integer[] ValideCode = {1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2};// Éí·İÖ¤ÑéÖ¤Î»Öµ.10´ú±íX 
-				if(cardNumber.length() == 15){ //½øĞĞ15Î»Éí·İÖ¤µÄÑéÖ¤,ÑéÖ¤ÄêÔÂÈÕÊÇ·ñºÏ·¨
+				//èº«ä»½è¯ä¸ä¸ºç©º,å¼€å§‹æ£€éªŒæ•°æ®èº«ä»½è¯çš„åˆæ³•æ€§ 
+				Integer[] Wi = { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 };// åŠ æƒå› å­ 
+				Integer[] ValideCode = {1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2};// èº«ä»½è¯éªŒè¯ä½å€¼.10ä»£è¡¨X 
+				if(cardNumber.length() == 15){ //è¿›è¡Œ15ä½èº«ä»½è¯çš„éªŒè¯,éªŒè¯å¹´æœˆæ—¥æ˜¯å¦åˆæ³•
 					int year = Integer.parseInt(cardNumber.substring(6,8));
 					int month = Integer.parseInt(cardNumber.substring(8, 10));
 					int day = Integer.parseInt(cardNumber.substring(10, 12));
@@ -134,18 +134,18 @@ public class IdCardAreaController {
 					if(localDate.getYear()!= year || localDate.getMonthOfYear() != month || localDate.getDayOfMonth() != day){
 						result.setCardNumber(cardNumber);
 						result.setCode(0);
-						result.setMsg("Éí·İÖ¤²»ºÏ·¨");
+						result.setMsg("èº«ä»½è¯ä¸åˆæ³•");
 						return result;
 					}else {
 						result.setCardNumber(cardNumber);
 						result.setCode(200);
-						result.setMsg("Éí·İÖ¤ºÏ·¨");
+						result.setMsg("èº«ä»½è¯åˆæ³•");
 						return result;
 					}
-				}else if(cardNumber.length() == 18){ //½øĞĞ18Î»Éí·İÖ¤µÄ»ù±¾ÑéÖ¤ºÍµÚ18Î»µÄÑéÖ¤
-					//ÑéÖ¤18Î»Éí·İÖ¤µÄ×îºóÑéÖ¤ÂëÊÇ·ñÕıÈ·
+				}else if(cardNumber.length() == 18){ //è¿›è¡Œ18ä½èº«ä»½è¯çš„åŸºæœ¬éªŒè¯å’Œç¬¬18ä½çš„éªŒè¯
+					//éªŒè¯18ä½èº«ä»½è¯çš„æœ€åéªŒè¯ç æ˜¯å¦æ­£ç¡®
 					int sum = 0;
-					//½ØÈ¡µÄ½á¹ûÊÇ,Êı×éµÄµÚÒ»Î»ÊÇ¿ÕµÄ,ºóÃæµÄ²ÅÓĞÖµ
+					//æˆªå–çš„ç»“æœæ˜¯,æ•°ç»„çš„ç¬¬ä¸€ä½æ˜¯ç©ºçš„,åé¢çš„æ‰æœ‰å€¼
 					String[] array = cardNumber.split("");
 					if(array[18].equalsIgnoreCase("x")){
 						array[18] = "10";
@@ -157,19 +157,19 @@ public class IdCardAreaController {
 					if((array[18]).equalsIgnoreCase((ValideCode[codePosition])+"")){
 						result.setCode(200);
 						result.setCardNumber(cardNumber);
-						result.setMsg("Éí·İÖ¤ºÏ·¨");
+						result.setMsg("èº«ä»½è¯åˆæ³•");
 						return result;
 					}else {
 						result.setCardNumber(cardNumber);
 						result.setCode(0);
-						result.setMsg("Éí·İÖ¤²»ºÏ·¨");
+						result.setMsg("èº«ä»½è¯ä¸åˆæ³•");
 						return result;
 					}
 				}
 			}
 		} catch (Exception e) {
 			if(log.isErrorEnabled()){
-				log.error("³ÌĞòÖ´ĞĞÊ±³öÏÖÒì³£:"+e);
+				log.error("ç¨‹åºæ‰§è¡Œæ—¶å‡ºç°å¼‚å¸¸:"+e);
 				log.error(e.getMessage());
 				return result;
 			}
@@ -178,7 +178,7 @@ public class IdCardAreaController {
 	}
 	
 	/**
-	 * @description ¸ù¾İÉí·İÖ¤ºÅÂë»ñÈ¡ĞÔ±ğ
+	 * @description æ ¹æ®èº«ä»½è¯å·ç è·å–æ€§åˆ«
 	 * @param cardNumber
 	 * @return
 	 */
@@ -192,7 +192,7 @@ public class IdCardAreaController {
 				if(result.getCode() != 200) {
 					result.setCardNumber(cardNumber);
 					result.setCode(0);
-					result.setMsg("Çë´«ÈëºÏ·¨µÄÉí·İÖ¤ºÅÂë");
+					result.setMsg("è¯·ä¼ å…¥åˆæ³•çš„èº«ä»½è¯å·ç ");
 					return result;
 				}
 				cardNumber=cardNumber.trim();
@@ -201,13 +201,13 @@ public class IdCardAreaController {
 						result.setCode(200);
 						result.setCardNumber(cardNumber);
 						result.setGender("female");
-						result.setMsg("Å®ĞÔ");
+						result.setMsg("å¥³æ€§");
 						return result;
 					}else {
 						result.setCode(200);
 						result.setCardNumber(cardNumber);
 						result.setGender("male");
-						result.setMsg("ÄĞĞÔ");
+						result.setMsg("ç”·æ€§");
 						return result;
 					}
 				}else if(cardNumber.length() == 18){
@@ -215,26 +215,26 @@ public class IdCardAreaController {
 						result.setCode(200);
 						result.setCardNumber(cardNumber);
 						result.setGender("female");
-						result.setMsg("Å®ĞÔ");
+						result.setMsg("å¥³æ€§");
 						return result;
 					}else {
 						result.setCode(200);
 						result.setCardNumber(cardNumber);
 						result.setGender("male");
-						result.setMsg("ÄĞĞÔ");
+						result.setMsg("ç”·æ€§");
 						return result;
 					}
 				}else {
 					result.setCode(200);
 					result.setCardNumber(cardNumber);
 					result.setGender("");
-					result.setMsg("ÎŞ·¨È·ÈÏĞÔ±ğ");
+					result.setMsg("æ— æ³•ç¡®è®¤æ€§åˆ«");
 					return result;
 				}
 			}
 		} catch (Exception e) {
 			if(log.isErrorEnabled()){
-				log.error("³ÌĞòÖ´ĞĞÊ±³öÏÖÒì³£:"+e);
+				log.error("ç¨‹åºæ‰§è¡Œæ—¶å‡ºç°å¼‚å¸¸:"+e);
 				log.error(e.getMessage());
 				return result;
 			}
